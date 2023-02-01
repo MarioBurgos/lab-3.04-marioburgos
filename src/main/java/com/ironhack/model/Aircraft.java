@@ -18,6 +18,22 @@ public class Aircraft {
         this.seats = seats;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Aircraft aircraft)) return false;
+
+        if (getModel() != null ? !getModel().equals(aircraft.getModel()) : aircraft.getModel() != null) return false;
+        return getSeats() != null ? getSeats().equals(aircraft.getSeats()) : aircraft.getSeats() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getModel() != null ? getModel().hashCode() : 0;
+        result = 31 * result + (getSeats() != null ? getSeats().hashCode() : 0);
+        return result;
+    }
+
     public String getModel() {
         return model;
     }
