@@ -1,5 +1,6 @@
 package com.ironhack.model;
 
+import com.ironhack.repositories.FlightRepository;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,12 +10,12 @@ public class Customer {
     private Integer id;
     private  String name;
     @Enumerated(EnumType.STRING)
-    CustomerStatus status;
+    FlightRepository status;
 
     public Customer() {
     }
 
-    public Customer(String name, CustomerStatus status) {
+    public Customer(String name, FlightRepository status) {
         this.name = name;
         this.status = status;
     }
@@ -35,11 +36,11 @@ public class Customer {
         this.name = name;
     }
 
-    public CustomerStatus getStatus() {
+    public FlightRepository getStatus() {
         return status;
     }
 
-    public void setStatus(CustomerStatus status) {
+    public void setStatus(FlightRepository status) {
         this.status = status;
     }
 }
