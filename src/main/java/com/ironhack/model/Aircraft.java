@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Entity
 public class Aircraft {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String model;
     @Column(name = "total_seats")
     private Integer seats;

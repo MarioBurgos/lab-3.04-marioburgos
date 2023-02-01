@@ -8,7 +8,9 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "customer_name")
     private  String name;
+    @Column(name = "customer_status")
     @Enumerated(EnumType.STRING)
     CustomerStatus status;
 

@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 
 @Entity
 public class Flight {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id()
+    @Column(name = "flight_number")
     private String number;
     private Long mileage;
     @Column(name = "aircraft_model")
