@@ -10,12 +10,12 @@ public class Customer {
     private Integer id;
     private  String name;
     @Enumerated(EnumType.STRING)
-    FlightRepository status;
+    CustomerStatus status;
 
     public Customer() {
     }
 
-    public Customer(String name, FlightRepository status) {
+    public Customer(String name, CustomerStatus status) {
         this.name = name;
         this.status = status;
     }
@@ -36,11 +36,11 @@ public class Customer {
         this.name = name;
     }
 
-    public FlightRepository getStatus() {
+    public CustomerStatus getStatus() {
         return status;
     }
 
-    public void setStatus(FlightRepository status) {
+    public void setStatus(CustomerStatus status) {
         this.status = status;
     }
 }
