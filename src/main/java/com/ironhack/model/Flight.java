@@ -9,6 +9,7 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String number;
     private Long mileage;
+    @Column(name = "aircraft_model")
     private String aircraft;
 
     public Flight() {

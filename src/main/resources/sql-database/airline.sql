@@ -20,7 +20,7 @@ CREATE TABLE flight (
     number VARCHAR(255) NOT NULL,
     mileage INT NOT NULL,
     aircraft_model VARCHAR(255) NOT NULL,
-    PRIMARY KEY (flight_number),
+    PRIMARY KEY (number),
     FOREIGN KEY (aircraft_model)
         REFERENCES aircraft (model)
 );
