@@ -21,6 +21,25 @@ public class Flight {
         this.aircraft = aircraft;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Flight flight)) return false;
+
+        if (getNumber() != null ? !getNumber().equals(flight.getNumber()) : flight.getNumber() != null) return false;
+        if (getMileage() != null ? !getMileage().equals(flight.getMileage()) : flight.getMileage() != null)
+            return false;
+        return getAircraft() != null ? getAircraft().equals(flight.getAircraft()) : flight.getAircraft() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getNumber() != null ? getNumber().hashCode() : 0;
+        result = 31 * result + (getMileage() != null ? getMileage().hashCode() : 0);
+        result = 31 * result + (getAircraft() != null ? getAircraft().hashCode() : 0);
+        return result;
+    }
+
     public String getNumber() {
         return number;
     }
