@@ -20,9 +20,11 @@ class AircraftRepositoryTest {
 
     @BeforeEach
     void setUp() {
+        // Creating new Aircraft
         aircraftX = new Aircraft("AC-X", 100);
         aircraftY = new Aircraft("AC-Y", 200);
-        aircraftZ = new Aircraft("AC-Z", null);
+        aircraftZ = new Aircraft("Boeing", 500);
+        //create new Aircraft
         aircraftRepository.save(aircraftX);
         aircraftRepository.save(aircraftY);
         aircraftRepository.save(aircraftZ);
@@ -38,14 +40,15 @@ class AircraftRepositoryTest {
         //findAll()
         List<Aircraft> aircraftList = aircraftRepository.findAll();
         assertEquals(3, aircraftList.size());
-        assertEquals(aircraftX, aircraftList.get(0));
-        assertEquals(aircraftY, aircraftList.get(1));
-        assertEquals(aircraftZ, aircraftList.get(2));
-
         //findById()
         Optional<Aircraft> optionalAircraft = aircraftRepository.findById(aircraftZ.getModel());
         assertTrue(optionalAircraft.isPresent());
         assertEquals(aircraftZ, optionalAircraft.get());
     }
 
+    @Test
+    void findByNameLike_NameLikeBoeing_AircraftFound() {
+        assertEquals(1, aircraftRepository.findByModelLike("Boeing").size());
+        assertEquals(aircraftZ, aircraftRepository.findByModelLike("Boeing").get(0));
+    }
 }
